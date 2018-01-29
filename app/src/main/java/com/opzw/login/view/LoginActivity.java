@@ -17,6 +17,7 @@ import com.opzw.login.model.bean.Token;
 import com.opzw.login.model.bean.User;
 
 import com.opzw.login.presenter.UserPresenter;
+import com.opzw.main.MainActivity;
 import com.opzw.utils.DialogUtils;
 import com.opzw.utils.ToastUtils;
 
@@ -129,6 +130,6 @@ public class LoginActivity extends Activity implements ILoginView {
 
     @Override
     public void onLoginSuccess(Token user) {
-
+        MainActivity.openActivity(LoginActivity.this);
     }
 }

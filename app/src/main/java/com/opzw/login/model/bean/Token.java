@@ -13,7 +13,7 @@ package com.opzw.login.model.bean;
 public class Token{
     private String companyId;
 
-    private String userId;
+    private String id;
 
     private String appId;
 
@@ -25,12 +25,12 @@ public class Token{
         this.companyId = companyId;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getId() {
+        return id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getAppId() {

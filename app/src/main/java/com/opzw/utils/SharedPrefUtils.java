@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.Gson;
 import com.opzw.App;
+import com.opzw.login.model.bean.Token;
 
 /**
  * Created by C560 on 2017/10/25.
@@ -90,6 +91,11 @@ public class SharedPrefUtils {
         SharedPreferences.Editor editor = sp.edit();
         editor.remove(key);
         editor.apply();
+    }
+
+    public static Token getToken(){
+        String json = (String) getParam(App.getContext(),TOKEN,"");
+        return new Gson().fromJson(json,Token.class);
     }
 
 }

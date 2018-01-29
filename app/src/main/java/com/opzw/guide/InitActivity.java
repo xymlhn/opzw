@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.opzw.R;
 import com.opzw.login.view.LoginActivity;
+import com.opzw.main.MainActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -33,7 +34,8 @@ public class InitActivity extends Activity{
                     @Override
                     public void accept(Long aLong) throws Exception {
                         if (aLong == 0) {
-                            LoginActivity.openActivity(InitActivity.this);
+//                            LoginActivity.openActivity(InitActivity.this);
+                            MainActivity.openActivity(InitActivity.this);
                             finish();
                         }
                     }

@@ -44,7 +44,7 @@ final class CGsonResponseBodyConverter<T> implements Converter<ResponseBody, T> 
     public T convert(@NonNull ResponseBody value) throws IOException {
         String response = value.string();
         Result result = gson.fromJson(response, Result.class);
-        if (result.getStatus() != 200) {
+        if (result.getStatus() != 1) {
             value.close();
             throw new ApiException(result.getStatus(), result.getMessage());
         }

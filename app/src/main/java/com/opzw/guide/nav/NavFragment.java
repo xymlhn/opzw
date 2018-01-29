@@ -15,6 +15,7 @@ import android.view.View;
 import com.opzw.R;
 import com.opzw.base.BaseFragment;
 import com.opzw.guide.TestFragment;
+import com.opzw.me.view.MeFragment;
 
 import java.util.List;
 
@@ -71,7 +72,7 @@ public class NavFragment extends BaseFragment implements View.OnClickListener{
 
         mNavMe.init(R.drawable.tab_icon_me,
                 R.string.main_tab_name_my,
-                TestFragment.class);
+                MeFragment.class);
 
 
     }

@@ -11,58 +11,13 @@ package com.opzw.login.model.bean;
 
 
 public class User {
-    private String account;
-    private String avatar;
-    private String nickname;
-    private long id;
-    private String phone;
-    private int vip;
+    private String userName;
 
-    public String getAccount() {
-        return account;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public int getVip() {
-        return vip;
-    }
-
-    public void setVip(int vip) {
-        this.vip = vip;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

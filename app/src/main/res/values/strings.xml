@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">opzw</string>
 
-    <string name="main_tab_name_news">综合</string>
-    <string name="main_tab_name_tweet">动弹</string>
+    <string name="main_tab_name_home">首页</string>
+    <string name="main_tab_name_sales">订单</string>
     <string name="main_tab_name_my">我的</string>
-    <string name="main_tab_name_explore">发现</string>
     <string name="skip_tips">跳过 3</string>
     <string name="loading">"加载中..."</string>
+    <string name="error_unknown">服务器发生未知错误</string>
+    <string name="error_timeout">连接超时</string>
 </resources>

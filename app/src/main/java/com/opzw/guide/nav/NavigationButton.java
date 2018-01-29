@@ -52,9 +52,10 @@ public class NavigationButton extends FrameLayout {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         inflater.inflate(R.layout.layout_nav_item, this, true);
 
-        mIconView = (ImageView) findViewById(R.id.nav_iv_icon);
-        mTitleView = (TextView) findViewById(R.id.nav_tv_title);
-        mDot = (TextView) findViewById(R.id.nav_tv_dot);
+        mIconView = findViewById(R.id.nav_iv_icon);
+        mTitleView = findViewById(R.id.nav_tv_title);
+        mTitleView.setTextColor(getResources().getColorStateList(R.color.tab_text_color));
+        mDot = findViewById(R.id.nav_tv_dot);
     }
 
     public void setSelected(boolean selected) {

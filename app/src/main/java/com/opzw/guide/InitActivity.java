@@ -1,11 +1,10 @@
 package com.opzw.guide;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.jakewharton.rxbinding2.widget.RxTextView;
 import com.opzw.R;
+import com.opzw.login.view.LoginActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -34,7 +33,7 @@ public class InitActivity extends Activity{
                     @Override
                     public void accept(Long aLong) throws Exception {
                         if (aLong == 0) {
-                            AdActivity.openActivity(InitActivity.this);
+                            LoginActivity.openActivity(InitActivity.this);
                             finish();
                         }
                     }

@@ -28,6 +28,7 @@
         <activity android:name=".guide.AdActivity" />
         <activity android:name=".guide.GuideActivity" />
         <activity android:name=".main.MainActivity"></activity>
+        <activity android:name=".login.view.LoginActivity"></activity>
     </application>
 
 </manifest>

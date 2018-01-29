@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
+import com.opzw.bean.Result;
 //import com.opsteel.pickupasst.login.model.bean.Result;
 
 import java.io.ByteArrayInputStream;
@@ -42,11 +43,11 @@ final class CGsonResponseBodyConverter<T> implements Converter<ResponseBody, T> 
     @Override
     public T convert(@NonNull ResponseBody value) throws IOException {
         String response = value.string();
-//        Result result = gson.fromJson(response, Result.class);
-//        if (result.getCode() != 200) {
-//            value.close();
-//            throw new ApiException(result.getCode(), result.getMessage());
-//        }
+        Result result = gson.fromJson(response, Result.class);
+        if (result.getStatus() != 200) {
+            value.close();
+            throw new ApiException(result.getStatus(), result.getMessage());
+        }
 
         MediaType contentType = value.contentType();
         Charset charset = contentType != null ? contentType.charset(UTF_8) : UTF_8;

@@ -13,4 +13,9 @@
         <item name="shadow_right">@drawable/shadow_right</item>
         <item name="shadow_bottom">@drawable/shadow_bottom</item>
     </style>
+
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#979797</item>
+        <item name="colorControlActivated">#45A1FD</item>
+    </style>
 </resources>

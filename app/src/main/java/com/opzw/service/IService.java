@@ -2,6 +2,10 @@ package com.opzw.service;
 
 
 
+import com.opzw.bean.Result;
+import com.opzw.login.model.bean.Token;
+import com.opzw.login.model.bean.User;
+
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -25,15 +29,11 @@ import retrofit2.http.Part;
 
 
 public interface IService {
-//    @POST("user/login")
-//    @FormUrlEncoded
-//    Observable<Result<Token>> login(@FieldMap Map<String, Object> map);
-//
-//    @GET("user/getUserInfo")
-//    Observable<Result<User>> getUser();
-//
-//    @Multipart
-//    @POST("file/uploadFile")
-//    Observable<Result> upload(@Part("uploadFile") RequestBody description,
-//                              @Part MultipartBody.Part file);
+    @POST("/isp/port/user-login/")
+    @FormUrlEncoded
+    Observable<Result<Token>> login(@FieldMap Map<String,Object> map);
+
+    @GET("/isp/port/user-login/")
+    Observable<Result<User>> getUser();
+
 }

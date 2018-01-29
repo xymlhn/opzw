@@ -24,9 +24,8 @@ import java.util.List;
  */
 public class NavFragment extends BaseFragment implements View.OnClickListener{
 
-    NavigationButton mNavNews;
-    NavigationButton mNavTweet;
-    NavigationButton mNavExplore;
+    NavigationButton mNavHome;
+    NavigationButton mNavSales;
     NavigationButton mNavMe;
     private Context mContext;
     private int mContainerId;
@@ -55,25 +54,19 @@ public class NavFragment extends BaseFragment implements View.OnClickListener{
         });
         root.setBackgroundDrawable(layerDrawable);
 
-        mNavNews = findView(R.id.nav_item_news);
-        mNavTweet = findView(R.id.nav_item_tweet);
-        mNavExplore = findView(R.id.nav_item_explore);
+        mNavHome = findView(R.id.nav_item_home);
+        mNavSales = findView(R.id.nav_item_sales);
         mNavMe = findView(R.id.nav_item_me);
 
-        mNavNews.setOnClickListener(this);
-        mNavTweet.setOnClickListener(this);
-        mNavExplore.setOnClickListener(this);
+        mNavHome.setOnClickListener(this);
+        mNavSales.setOnClickListener(this);
         mNavMe.setOnClickListener(this);
-        mNavNews.init(R.drawable.tab_icon_new,
-                R.string.main_tab_name_news,
+        mNavHome.init(R.drawable.tab_icon_home,
+                R.string.main_tab_name_home,
                 TestFragment.class);
 
-        mNavTweet.init(R.drawable.tab_icon_tweet,
-                R.string.main_tab_name_tweet,
-                TestFragment.class);
-
-        mNavExplore.init(R.drawable.tab_icon_explore,
-                R.string.main_tab_name_explore,
+        mNavSales.init(R.drawable.tab_icon_sales,
+                R.string.main_tab_name_sales,
                 TestFragment.class);
 
         mNavMe.init(R.drawable.tab_icon_me,
@@ -102,7 +95,7 @@ public class NavFragment extends BaseFragment implements View.OnClickListener{
         // do clear
         clearOldFragment();
         // do select first
-        doSelect(mNavNews);
+        doSelect(mNavHome);
     }
 
     public void select(int index) {

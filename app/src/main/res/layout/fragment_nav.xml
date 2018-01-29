@@ -7,7 +7,7 @@
     tools:context="com.opzw.guide.nav.NavFragment">
 
     <com.opzw.guide.nav.NavigationButton
-        android:id="@+id/nav_item_news"
+        android:id="@+id/nav_item_home"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -15,15 +15,7 @@
         android:paddingRight="12dp" />
 
     <com.opzw.guide.nav.NavigationButton
-        android:id="@+id/nav_item_tweet"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp" />
-
-    <com.opzw.guide.nav.NavigationButton
-        android:id="@+id/nav_item_explore"
+        android:id="@+id/nav_item_sales"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

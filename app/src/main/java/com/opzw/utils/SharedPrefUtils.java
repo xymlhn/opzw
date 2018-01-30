@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 
 import com.google.gson.Gson;
 import com.opzw.App;
-import com.opzw.login.model.bean.Token;
+import com.opzw.bean.Token;
 
 /**
  * Created by C560 on 2017/10/25.

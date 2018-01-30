@@ -23,12 +23,11 @@ import java.io.Serializable;
  */
 
 @SuppressWarnings("WeakerAccess")
-public abstract class BaseFragment extends Fragment implements IBaseView{
+public abstract class BaseFragment extends Fragment {
     protected Context mContext;
     protected View mRoot;
     protected Bundle mBundle;
     protected LayoutInflater mInflater;
-    protected Dialog progressDialog;
 
     @Override
     public void onAttach(Context context) {
@@ -153,41 +152,7 @@ public abstract class BaseFragment extends Fragment implements IBaseView{
     protected void onRestartInstance(Bundle bundle) {
 
     }
-    @Override
-    public void showLoading(int resId) {
-        progressDialog = DialogUtils.showLoading(getActivity(), resId);
-    }
 
-    @Override
-    public void showLoading() {
-        progressDialog = DialogUtils.showLoading(getActivity(), R.string.loading);
-    }
-
-    @Override
-    public void hideLoading() {
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.cancel();
-        }
-        progressDialog = null;
-    }
-
-    @Override
-    public void onUnknownError(@NonNull String error) {
-        hideLoading();
-        ToastUtils.showToastLong(getContext(), error);
-    }
-
-    @Override
-    public void onNetworkError() {
-        hideLoading();
-        ToastUtils.showToastLong(getActivity(), getString(R.string.error_unknown));
-    }
-
-    @Override
-    public void onTimeout() {
-        hideLoading();
-        ToastUtils.showToastLong(getActivity(), getString(R.string.error_timeout));
-    }
 
 
 }

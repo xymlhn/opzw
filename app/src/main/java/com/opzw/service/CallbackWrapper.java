@@ -1,8 +1,6 @@
 package com.opzw.service;
 
 
-import com.opzw.base.IBaseView;
-
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -24,11 +22,7 @@ import retrofit2.HttpException;
 
 public abstract class CallbackWrapper<T> extends DisposableObserver<T> {
 
-    private IBaseView view;
 
-    public CallbackWrapper(IBaseView view) {
-        this.view = view;
-    }
 
     @Override
     public void onNext(T t) {
@@ -37,15 +31,17 @@ public abstract class CallbackWrapper<T> extends DisposableObserver<T> {
 
     @Override
     public void onError(Throwable t) {
-        if (t instanceof HttpException) {
+        if(t instanceof ApiException){
+            onFail(t.getMessage());
+        }else if (t instanceof HttpException) {
             ResponseBody responseBody = ((HttpException) t).response().errorBody();
-            view.onUnknownError(getErrorMessage(responseBody));
+            onFail(getErrorMessage(responseBody));
         } else if (t instanceof SocketTimeoutException) {
-            view.onTimeout();
+            onFail("连接超时");
         } else if (t instanceof IOException) {
-            view.onNetworkError();
+            onFail("连接超时");
         }else {
-            view.onUnknownError(t.getMessage());
+            onFail("服务器发生未知错误");
         }
     }
 
@@ -54,6 +50,8 @@ public abstract class CallbackWrapper<T> extends DisposableObserver<T> {
     }
 
     protected abstract void onSuccess(T t);
+
+    protected abstract void onFail(String t);
 
     private String getErrorMessage(ResponseBody responseBody) {
         try {

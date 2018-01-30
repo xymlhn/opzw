@@ -4,10 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyle"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="45dp"
+        android:maxHeight="100dp"
+        app:layout_constraintTop_toBottomOf="@+id/titleLayout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

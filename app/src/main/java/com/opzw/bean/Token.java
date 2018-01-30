@@ -1,4 +1,4 @@
-package com.opzw.login.model.bean;
+package com.opzw.bean;
 
 /**
  * 文 件 名: Token
@@ -16,6 +16,8 @@ public class Token{
     private String id;
 
     private String appId;
+
+    private String userName;
 
     public String getCompanyId() {
         return companyId;
@@ -39,5 +41,13 @@ public class Token{
 
     public void setAppId(String appId) {
         this.appId = appId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

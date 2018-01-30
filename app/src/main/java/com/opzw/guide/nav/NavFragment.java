@@ -15,7 +15,7 @@ import android.view.View;
 import com.opzw.R;
 import com.opzw.base.BaseFragment;
 import com.opzw.guide.TestFragment;
-import com.opzw.me.view.MeFragment;
+import com.opzw.me.MeFragment;
 
 import java.util.List;
 

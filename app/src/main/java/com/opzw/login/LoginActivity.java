@@ -1,24 +1,27 @@
-package com.opzw.login.view;
+package com.opzw.login;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.jakewharton.rxbinding2.widget.RxTextView;
+import com.opzw.App;
 import com.opzw.R;
-import com.opzw.login.model.bean.Token;
-import com.opzw.login.model.bean.User;
+import com.opzw.bean.Result;
+import com.opzw.bean.Token;
 
-import com.opzw.login.presenter.UserPresenter;
 import com.opzw.main.MainActivity;
+import com.opzw.service.ApiManager;
+import com.opzw.service.CallbackWrapper;
 import com.opzw.utils.DialogUtils;
+import com.opzw.utils.SharedPrefUtils;
 import com.opzw.utils.ToastUtils;
 
 import java.util.HashMap;
@@ -29,6 +32,7 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 
 /**
@@ -41,9 +45,8 @@ import io.reactivex.functions.Consumer;
  */
 
 
-public class LoginActivity extends Activity implements ILoginView {
+public class LoginActivity extends Activity {
     protected Dialog progressDialog;
-    UserPresenter userPresenter;
     private Button loginBtn;
     private EditText accountText;
     private EditText passwordText;
@@ -59,7 +62,6 @@ public class LoginActivity extends Activity implements ILoginView {
         loginBtn = findViewById(R.id.loginBtn);
         accountText = findViewById(R.id.account);
         passwordText = findViewById(R.id.password);
-        userPresenter = new UserPresenter(this);
 
         Observable<CharSequence> observablePhone = RxTextView.textChanges(accountText);
         Observable<CharSequence> observableValid = RxTextView.textChanges(passwordText);
@@ -67,13 +69,13 @@ public class LoginActivity extends Activity implements ILoginView {
         Observable.combineLatest(observablePhone, observableValid, new BiFunction<CharSequence, CharSequence, Boolean>() {
             @Override
             public Boolean apply(CharSequence phone, CharSequence valid) throws Exception {
-                return (phone.toString().length() > 0) && (valid.toString().length() >= 0);
+                return (phone.toString().length() > 0) && (valid.toString().length() > 0);
             }
         }).subscribe(new Consumer<Boolean>() {
             @Override
             public void accept(Boolean aBoolean) throws Exception {
                 RxView.enabled(loginBtn).accept(aBoolean);
-                loginBtn.setBackgroundColor(getResources().getColor(aBoolean ? R.color.mainColor : R.color.disableColor));
+                loginBtn.setBackground(getResources().getDrawable(aBoolean ? R.drawable.shape : R.drawable.shape_disable));
             }
         });
 
@@ -87,49 +89,46 @@ public class LoginActivity extends Activity implements ILoginView {
                             put("username", accountText.getText());
                             put("password", passwordText.getText());
                         }};
-                        userPresenter.login(map);
+                        progressDialog = DialogUtils.showLoading(LoginActivity.this, R.string.loading);
+                        ApiManager.getInstence().getService().login(map)
+                                .subscribeOn(Schedulers.io())
+                                .doOnNext(new Consumer<Result<Token>>() {
+                                    @Override
+                                    public void accept(Result<Token> tokenResult) throws Exception {
+                                        //缓存token
+                                        tokenResult.getData().setUserName(accountText.getText().toString());
+                                        SharedPrefUtils.setParam(App.getContext(),SharedPrefUtils.TOKEN, new Gson().toJson(tokenResult.getData()));
+                                    }
+                                })
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribeWith(new CallbackWrapper<Result<Token>>() {
+                                    @Override
+                                    protected void onSuccess(Result<Token> tokenResult) {
+                                        hideLoading();
+                                        MainActivity.openActivity(LoginActivity.this);
+                                    }
+
+                                    @Override
+                                    protected void onFail(String t) {
+                                        hideLoading();
+                                        ToastUtils.showToastLong(LoginActivity.this,t);
+                                    }
+                                });
                     }
                 });
     }
 
-    @Override
-    public void showLoading(int resId) {
-        progressDialog = DialogUtils.showLoading(this, resId);
-    }
 
-    @Override
-    public void showLoading() {
-        progressDialog = DialogUtils.showLoading(this, R.string.loading);
-    }
 
-    @Override
-    public void hideLoading() {
+    private void hideLoading() {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.cancel();
         }
         progressDialog = null;
     }
 
-    @Override
-    public void onUnknownError(@NonNull String error) {
-        hideLoading();
-        ToastUtils.showToastLong(this, error);
-    }
 
-    @Override
-    public void onNetworkError() {
-        hideLoading();
-        ToastUtils.showToastLong(this, getString(R.string.error_unknown));
-    }
-
-    @Override
-    public void onTimeout() {
-        hideLoading();
-        ToastUtils.showToastLong(this, getString(R.string.error_timeout));
-    }
-
-    @Override
     public void onLoginSuccess(Token user) {
-        MainActivity.openActivity(LoginActivity.this);
+
     }
 }

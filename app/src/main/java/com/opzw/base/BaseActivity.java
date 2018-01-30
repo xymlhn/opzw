@@ -29,15 +29,14 @@ import com.opzw.utils.ToastUtils;
 /**
  * The type Base activity.
  */
-public abstract class BaseActivity extends AppCompatActivity implements IBaseView {
-    protected Dialog progressDialog;
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         initView();
-        onBackClick(this);
+        onBackClick();
         setListener();
         initData();
     }
@@ -89,8 +88,8 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     }
 
     /*返回按钮默认点击事件*/
-    private void onBackClick(Activity activity) {
-        addBackClick(new View.OnClickListener() {
+    private void onBackClick() {
+        this.addBackClick(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -110,42 +109,6 @@ public abstract class BaseActivity extends AppCompatActivity implements IBaseVie
     @Override
     protected void onDestroy() {
         super.onDestroy();
-    }
-
-    @Override
-    public void showLoading(int resId) {
-        progressDialog = DialogUtils.showLoading(this, resId);
-    }
-
-    @Override
-    public void showLoading() {
-        progressDialog = DialogUtils.showLoading(this, R.string.loading);
-    }
-
-    @Override
-    public void hideLoading() {
-        if (progressDialog != null && progressDialog.isShowing()) {
-            progressDialog.cancel();
-        }
-        progressDialog = null;
-    }
-
-    @Override
-    public void onUnknownError(@NonNull String error) {
-        hideLoading();
-        ToastUtils.showToastLong(this, error);
-    }
-
-    @Override
-    public void onNetworkError() {
-        hideLoading();
-        ToastUtils.showToastLong(this, getString(R.string.error_unknown));
-    }
-
-    @Override
-    public void onTimeout() {
-        hideLoading();
-        ToastUtils.showToastLong(this, getString(R.string.error_timeout));
     }
 
     @TargetApi(Build.VERSION_CODES.M)

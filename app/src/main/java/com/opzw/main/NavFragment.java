@@ -1,4 +1,4 @@
-package com.opzw.guide.nav;
+package com.opzw.main;
 
 
 import android.content.Context;
@@ -15,6 +15,8 @@ import android.view.View;
 import com.opzw.R;
 import com.opzw.base.BaseFragment;
 import com.opzw.guide.TestFragment;
+import com.opzw.guide.nav.BorderShape;
+import com.opzw.home.HomeFragment;
 import com.opzw.me.MeFragment;
 
 import java.util.List;
@@ -64,7 +66,7 @@ public class NavFragment extends BaseFragment implements View.OnClickListener{
         mNavMe.setOnClickListener(this);
         mNavHome.init(R.drawable.tab_icon_home,
                 R.string.main_tab_name_home,
-                TestFragment.class);
+                HomeFragment.class);
 
         mNavSales.init(R.drawable.tab_icon_sales,
                 R.string.main_tab_name_sales,

@@ -7,9 +7,10 @@
 
     <ImageView
         android:id="@+id/topImage"
-        android:layout_width="383dp"
+        android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="#45A1FD"
+        android:scaleType="fitXY"
+        android:src="@mipmap/me_background"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,7 +21,7 @@
         android:layout_height="74dp"
         android:layout_marginBottom="31dp"
         android:layout_marginLeft="19dp"
-        android:src="@mipmap/icon_company"
+        android:src="@mipmap/auth"
         app:layout_constraintBottom_toBottomOf="@id/topImage"
         app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -38,11 +39,12 @@
 
     <ImageView
         android:id="@+id/icon_phone"
-        android:layout_width="13dp"
+        android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="25dp"
-        android:src="@mipmap/icon_company"
+        android:layout_marginStart="25dp"
+        android:src="@mipmap/icon_phone"
         app:layout_constraintBottom_toBottomOf="@+id/company"
         app:layout_constraintLeft_toRightOf="@+id/company" />
 
@@ -51,12 +53,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:text="18623456789"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="@+id/icon_phone"
         app:layout_constraintBottom_toBottomOf="@+id/icon_phone"
-        app:layout_constraintLeft_toRightOf="@+id/icon_phone" />
+        app:layout_constraintLeft_toRightOf="@+id/icon_phone"
+        app:layout_constraintTop_toTopOf="@+id/icon_phone" />
 
     <View
         android:id="@+id/personBtn"
@@ -64,6 +67,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="11dp"
         android:background="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topImage" />
 
     <ImageView
@@ -71,6 +76,7 @@
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
         android:src="@mipmap/icon_person"
         app:layout_constraintBottom_toBottomOf="@id/personBtn"
         app:layout_constraintLeft_toLeftOf="@id/personBtn"
@@ -90,6 +96,7 @@
         android:id="@+id/personArrow"
         android:layout_width="15dp"
         android:layout_height="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:src="@mipmap/right_arrow"
         app:layout_constraintBottom_toBottomOf="@id/personBtn"
@@ -100,6 +107,7 @@
         android:layout_width="0dp"
         android:layout_height="1px"
         android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:background="@color/lineColor"
         app:layout_constraintBottom_toBottomOf="@id/personBtn"
         app:layout_constraintLeft_toRightOf="@id/personImage"
@@ -107,17 +115,19 @@
 
     <View
         android:id="@+id/companyBtn"
-        android:layout_width="356dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/personBtn"
-        tools:layout_editor_absoluteX="4dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/personBtn" />
 
     <ImageView
         android:id="@+id/companyImage"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
         android:src="@mipmap/icon_company"
         app:layout_constraintBottom_toBottomOf="@id/companyBtn"
         app:layout_constraintLeft_toLeftOf="@id/companyBtn"
@@ -137,6 +147,7 @@
         android:id="@+id/companyArrow"
         android:layout_width="15dp"
         android:layout_height="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
         android:src="@mipmap/right_arrow"
         app:layout_constraintBottom_toBottomOf="@id/companyBtn"

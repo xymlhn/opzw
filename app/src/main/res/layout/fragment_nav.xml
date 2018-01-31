@@ -4,9 +4,9 @@
     android:layout_height="48dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    tools:context="com.opzw.guide.nav.NavFragment">
+    tools:context="com.opzw.main.NavFragment">
 
-    <com.opzw.guide.nav.NavigationButton
+    <com.opzw.main.NavigationButton
         android:id="@+id/nav_item_home"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -14,7 +14,7 @@
         android:paddingLeft="12dp"
         android:paddingRight="12dp" />
 
-    <com.opzw.guide.nav.NavigationButton
+    <com.opzw.main.NavigationButton
         android:id="@+id/nav_item_sales"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -22,7 +22,7 @@
         android:paddingLeft="12dp"
         android:paddingRight="12dp" />
 
-    <com.opzw.guide.nav.NavigationButton
+    <com.opzw.main.NavigationButton
         android:id="@+id/nav_item_me"
         android:layout_width="0dp"
         android:layout_height="match_parent"

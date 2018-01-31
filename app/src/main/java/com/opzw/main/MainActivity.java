@@ -9,8 +9,6 @@ import android.os.Bundle;
 
 import com.opzw.R;
 import com.opzw.guide.nav.OnTabReselectListener;
-import com.opzw.guide.nav.NavFragment;
-import com.opzw.guide.nav.NavigationButton;
 
 public class MainActivity extends AppCompatActivity implements NavFragment.OnNavigationReselectListener{
 

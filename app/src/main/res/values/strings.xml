@@ -10,4 +10,11 @@
     <string name="error_timeout">连接超时</string>
     <string name="title_person">个人资料</string>
     <string name="title_company">公司资料</string>
+    <string name="home_lingjian">零件管理</string>
+    <string name="home_chanliang">产量维护</string>
+    <string name="home_yuce">需求预测</string>
+    <string name="home_genzong">需求跟踪</string>
+    <string name="home_duanliao">断料预警</string>
+    <string name="home_jiaohuo">交货波动</string>
+    <string name="home_xingneng">性能分析</string>
 </resources>

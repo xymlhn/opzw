@@ -53,7 +53,6 @@ public class PersonalAdapter extends RecyclerView.Adapter {
             ((VHolder)holder).name.setText(map.get(0));
             ((VHolder)holder).value.setText(map.get(1));
         }
-
     }
 
     @Override

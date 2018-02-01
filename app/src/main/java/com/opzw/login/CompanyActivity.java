@@ -125,8 +125,7 @@ public class CompanyActivity extends BaseActivity {
 
         List<String> strings9 = new ArrayList<>();
         strings9.add("认证状态");
-        strings9.add("It’s often said that Amazon and Google operate at scales far removed from most organizations, so the solutions they needed may not be relevant to an average organization. While it’s true that most software projects don’t need that level of scale, it’s also true that more and more organizations are beginning to explore what they can do by capturing and processing more data—and to run into the same problems. So, as more information leaked out about what Google and Amazon had done, people began to explore making databases along similar lines—explicitly designed to live in a world of clusters. While the earlier menaces to relational dominance turned out to be phantoms, the threat from clusters was serious.");
-
+        strings9.add(userResult.getData().getAuthStatus() == 0 ? "未认证":"已认证");
         objectList.add(strings1);
         objectList.add(strings2);
         objectList.add(strings3);

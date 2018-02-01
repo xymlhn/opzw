@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/titleLayout"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="65dp"
         android:scaleType="fitXY"
         android:src="@mipmap/title_background"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,6 +19,7 @@
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/status_height"
         android:text="ISP智慧服务"
         android:textColor="@color/whiteColor"
         android:textSize="18sp"
@@ -29,26 +30,446 @@
 
 
     <ScrollView
+        android:scrollbars="none"
+        android:layout_marginTop="65dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleLayout">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/topImage"
                 android:layout_width="match_parent"
                 android:layout_height="168dp"
                 android:background="#45A1FD" />
-            <android.support.v7.widget.RecyclerView
+
+            <android.support.constraint.ConstraintLayout
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="match_parent"
                 android:layout_height="176dp">
-            </android.support.v7.widget.RecyclerView>
+                <LinearLayout
+                    android:id="@+id/lingjianBtn"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/chanliangBtn"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="88dp">
+                    <ImageView
+                        android:layout_marginTop="12dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@mipmap/icon_company" />
 
+                    <TextView
+                        android:layout_marginTop="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="零件管理"
+                        android:textColor="@color/mainTextColor"
+                        android:textSize="13sp" />
+                </LinearLayout>
 
+                <LinearLayout
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/lingjianBtn"
+                    app:layout_constraintRight_toLeftOf="@+id/yuceBtn"
+                    android:id="@+id/chanliangBtn"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="88dp">
+                    <ImageView
+                        android:layout_marginTop="12dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@mipmap/icon_company" />
+
+                    <TextView
+                        android:layout_marginTop="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_chanliang"
+                        android:textColor="@color/mainTextColor"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                <LinearLayout
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/chanliangBtn"
+                    app:layout_constraintRight_toRightOf="@+id/genzoongBtn"
+                    android:id="@+id/yuceBtn"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="88dp">
+                    <ImageView
+                        android:layout_marginTop="12dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@mipmap/icon_company" />
+
+                    <TextView
+                        android:layout_marginTop="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_yuce"
+                        android:textColor="@color/mainTextColor"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                <LinearLayout
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/yuceBtn"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:id="@+id/genzoongBtn"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="88dp">
+                    <ImageView
+                        android:layout_marginTop="12dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@mipmap/icon_company" />
+
+                    <TextView
+                        android:layout_marginTop="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_genzong"
+                        android:textColor="@color/mainTextColor"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/duanliaoBtn"
+                    app:layout_constraintLeft_toLeftOf="@id/lingjianBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/lingjianBtn"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="88dp">
+                    <ImageView
+                        android:layout_marginTop="8dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@mipmap/icon_company" />
+
+                    <TextView
+                        android:layout_marginTop="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_duanliao"
+                        android:textColor="@color/mainTextColor"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    app:layout_constraintTop_toBottomOf="@+id/lingjianBtn"
+                    app:layout_constraintLeft_toLeftOf="@+id/chanliangBtn"
+                    android:id="@+id/jiaohuoBtn"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="88dp">
+                    <ImageView
+                        android:layout_marginTop="8dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@mipmap/icon_company" />
+
+                    <TextView
+                        android:layout_marginTop="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_jiaohuo"
+                        android:textColor="@color/mainTextColor"
+                        android:textSize="13sp" />
+                </LinearLayout>
+                <LinearLayout
+                    app:layout_constraintTop_toBottomOf="@+id/lingjianBtn"
+                    app:layout_constraintLeft_toLeftOf="@+id/yuceBtn"
+                    android:id="@+id/xingnengBtn"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="88dp">
+                    <ImageView
+                        android:layout_marginTop="8dp"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@mipmap/icon_company" />
+
+                    <TextView
+                        android:layout_marginTop="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_xingneng"
+                        android:textColor="@color/mainTextColor"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </android.support.constraint.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/lineColor" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="待办事项"
+                android:textColor="@color/mainColor"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/lineColor" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/prductBtn"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/prudoctIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginStart="12dp"
+                    android:src="@mipmap/icon_company"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/productContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="产量维护提醒"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/prudoctIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/productArrow"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/right_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="19dp"
+                    android:layout_marginRight="19dp"
+                    android:text="5项"
+                    android:textColor="@color/mainColor"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@id/productArrow"
+                    app:layout_constraintRight_toLeftOf="@id/productArrow"
+                    app:layout_constraintTop_toTopOf="@+id/productArrow" />
+                <View
+                    app:layout_constraintLeft_toLeftOf="@id/productContent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@color/lineColor"
+                    android:layout_width="0dp"
+                    android:layout_height="1px"/>
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/orderBtn"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/orderIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginStart="12dp"
+                    android:src="@mipmap/icon_company"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/orderContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="预测订货提醒"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/orderIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/orderArrow"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/right_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="19dp"
+                    android:layout_marginRight="19dp"
+                    android:text="5项"
+                    android:textColor="@color/mainColor"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@id/orderArrow"
+                    app:layout_constraintRight_toLeftOf="@id/orderArrow"
+                    app:layout_constraintTop_toTopOf="@+id/orderArrow" />
+
+                <View
+                    app:layout_constraintLeft_toLeftOf="@id/orderContent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@color/lineColor"
+                    android:layout_width="0dp"
+                    android:layout_height="1px"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/payBtn"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/payIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginStart="12dp"
+                    android:src="@mipmap/icon_company"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/payContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="付款提醒"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/payIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/payArrow"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/right_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="19dp"
+                    android:layout_marginRight="19dp"
+                    android:text="5项"
+                    android:textColor="@color/mainColor"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@id/payArrow"
+                    app:layout_constraintRight_toLeftOf="@id/payArrow"
+                    app:layout_constraintTop_toTopOf="@+id/payArrow" />
+
+                <View
+                    app:layout_constraintLeft_toLeftOf="@id/payContent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@color/lineColor"
+                    android:layout_width="0dp"
+                    android:layout_height="1px"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/kaipiaoBtn"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@color/white">
+
+                <ImageView
+                    android:id="@+id/kaipiaoIcon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginStart="12dp"
+                    android:src="@mipmap/icon_company"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/kaipiaoContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="开票提醒"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/kaipiaoIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/kaipiaoArrow"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/right_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="19dp"
+                    android:layout_marginRight="19dp"
+                    android:text="5项"
+                    android:textColor="@color/mainColor"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@id/kaipiaoArrow"
+                    app:layout_constraintRight_toLeftOf="@id/kaipiaoArrow"
+                    app:layout_constraintTop_toTopOf="@+id/kaipiaoArrow" />
+
+                <View
+                    app:layout_constraintLeft_toLeftOf="@id/kaipiaoContent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@color/lineColor"
+                    android:layout_width="0dp"
+                    android:layout_height="1px"/>
+
+            </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

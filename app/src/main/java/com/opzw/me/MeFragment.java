@@ -2,6 +2,7 @@ package com.opzw.me;
 
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -9,6 +10,7 @@ import com.jakewharton.rxbinding2.view.RxView;
 import com.opzw.App;
 import com.opzw.R;
 import com.opzw.base.BaseFragment;
+import com.opzw.bean.Company;
 import com.opzw.bean.Result;
 import com.opzw.guide.nav.OnTabReselectListener;
 import com.opzw.bean.Token;
@@ -47,6 +49,7 @@ public class MeFragment extends BaseFragment implements OnTabReselectListener {
     private View personBtn;
     private View companyBtn;
     private View logoutBtn;
+    private ImageView company;
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_me;
@@ -60,6 +63,7 @@ public class MeFragment extends BaseFragment implements OnTabReselectListener {
         logoutBtn = root.findViewById(R.id.logoutBtn);
         personBtn = root.findViewById(R.id.personBtn);
         companyBtn = root.findViewById(R.id.companyBtn);
+        company = root.findViewById(R.id.company);
     }
 
     @Override
@@ -84,6 +88,24 @@ public class MeFragment extends BaseFragment implements OnTabReselectListener {
                     protected void onSuccess(Result<User> userResult) {
                         phontText.setText(userResult.getData().getMobile());
                         companyText.setText(userResult.getData().getCompanyName());
+                    }
+
+                    @Override
+                    protected void onFail(String t) {
+                        ToastUtils.showToastShort(getContext(),t);
+                    }
+                });
+        Map<String,Object> map1 = new HashMap<>();
+        map1.put("companyId",token.getCompanyId());
+        map1.put("appId",token.getAppId());
+        map1.put("userId",token.getId());
+        ApiManager.getInstence().getService().getCompany(map1)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new CallbackWrapper<Result<Company>>() {
+                    @Override
+                    protected void onSuccess(Result<Company> userResult) {
+                        company.setImageResource(userResult.getData().getAuthStatus() != 30 ?R.mipmap.auth_disable : R.mipmap.auth);
                     }
 
                     @Override

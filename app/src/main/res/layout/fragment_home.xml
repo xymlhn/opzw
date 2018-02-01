@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/titleLayout"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="45dp"
         android:scaleType="fitXY"
         android:src="@mipmap/title_background"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,7 +19,6 @@
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/status_height"
         android:text="ISP智慧服务"
         android:textColor="@color/whiteColor"
         android:textSize="18sp"
@@ -30,10 +29,10 @@
 
 
     <ScrollView
-        android:scrollbars="none"
-        android:layout_marginTop="65dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="45dp"
+        android:scrollbars="none"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleLayout">
@@ -50,159 +49,171 @@
                 android:background="#45A1FD" />
 
             <android.support.constraint.ConstraintLayout
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="match_parent"
-                android:layout_height="176dp">
+                android:layout_height="176dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
                 <LinearLayout
                     android:id="@+id/lingjianBtn"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/chanliangBtn"
-                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="88dp">
+                    android:layout_height="88dp"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/chanliangBtn"
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <ImageView
-                        android:layout_marginTop="12dp"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
+                        android:layout_marginTop="12dp"
                         android:src="@mipmap/icon_company" />
 
                     <TextView
-                        android:layout_marginTop="7dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
                         android:text="零件管理"
                         android:textColor="@color/mainTextColor"
                         android:textSize="13sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/chanliangBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="88dp"
+                    android:orientation="vertical"
                     app:layout_constraintLeft_toRightOf="@+id/lingjianBtn"
                     app:layout_constraintRight_toLeftOf="@+id/yuceBtn"
-                    android:id="@+id/chanliangBtn"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="88dp">
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <ImageView
-                        android:layout_marginTop="12dp"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
+                        android:layout_marginTop="12dp"
                         android:src="@mipmap/icon_company" />
 
                     <TextView
-                        android:layout_marginTop="7dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
                         android:text="@string/home_chanliang"
                         android:textColor="@color/mainTextColor"
                         android:textSize="13sp" />
                 </LinearLayout>
+
                 <LinearLayout
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/yuceBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="88dp"
+                    android:orientation="vertical"
                     app:layout_constraintLeft_toRightOf="@+id/chanliangBtn"
                     app:layout_constraintRight_toRightOf="@+id/genzoongBtn"
-                    android:id="@+id/yuceBtn"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="88dp">
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <ImageView
-                        android:layout_marginTop="12dp"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
+                        android:layout_marginTop="12dp"
                         android:src="@mipmap/icon_company" />
 
                     <TextView
-                        android:layout_marginTop="7dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
                         android:text="@string/home_yuce"
                         android:textColor="@color/mainTextColor"
                         android:textSize="13sp" />
                 </LinearLayout>
+
                 <LinearLayout
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/genzoongBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="88dp"
+                    android:orientation="vertical"
                     app:layout_constraintLeft_toRightOf="@+id/yuceBtn"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:id="@+id/genzoongBtn"
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="88dp">
+                    app:layout_constraintTop_toTopOf="parent">
+
                     <ImageView
-                        android:layout_marginTop="12dp"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
+                        android:layout_marginTop="12dp"
                         android:src="@mipmap/icon_company" />
 
                     <TextView
-                        android:layout_marginTop="7dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
                         android:text="@string/home_genzong"
                         android:textColor="@color/mainTextColor"
                         android:textSize="13sp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/duanliaoBtn"
-                    app:layout_constraintLeft_toLeftOf="@id/lingjianBtn"
-                    app:layout_constraintTop_toBottomOf="@+id/lingjianBtn"
-                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="88dp">
+                    android:layout_height="88dp"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="@id/lingjianBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/lingjianBtn">
+
                     <ImageView
-                        android:layout_marginTop="8dp"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
+                        android:layout_marginTop="8dp"
                         android:src="@mipmap/icon_company" />
 
                     <TextView
-                        android:layout_marginTop="7dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
                         android:text="@string/home_duanliao"
                         android:textColor="@color/mainTextColor"
                         android:textSize="13sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    app:layout_constraintTop_toBottomOf="@+id/lingjianBtn"
-                    app:layout_constraintLeft_toLeftOf="@+id/chanliangBtn"
                     android:id="@+id/jiaohuoBtn"
-                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="88dp">
+                    android:layout_height="88dp"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="@+id/chanliangBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/lingjianBtn">
+
                     <ImageView
-                        android:layout_marginTop="8dp"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
+                        android:layout_marginTop="8dp"
                         android:src="@mipmap/icon_company" />
 
                     <TextView
-                        android:layout_marginTop="7dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
                         android:text="@string/home_jiaohuo"
                         android:textColor="@color/mainTextColor"
                         android:textSize="13sp" />
                 </LinearLayout>
+
                 <LinearLayout
-                    app:layout_constraintTop_toBottomOf="@+id/lingjianBtn"
-                    app:layout_constraintLeft_toLeftOf="@+id/yuceBtn"
                     android:id="@+id/xingnengBtn"
-                    android:orientation="vertical"
                     android:layout_width="wrap_content"
-                    android:layout_height="88dp">
+                    android:layout_height="88dp"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="@+id/yuceBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/lingjianBtn">
+
                     <ImageView
-                        android:layout_marginTop="8dp"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
+                        android:layout_marginTop="8dp"
                         android:src="@mipmap/icon_company" />
 
                     <TextView
-                        android:layout_marginTop="7dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
                         android:text="@string/home_xingneng"
                         android:textColor="@color/mainTextColor"
                         android:textSize="13sp" />
@@ -279,13 +290,14 @@
                     app:layout_constraintBottom_toBottomOf="@id/productArrow"
                     app:layout_constraintRight_toLeftOf="@id/productArrow"
                     app:layout_constraintTop_toTopOf="@+id/productArrow" />
+
                 <View
-                    app:layout_constraintLeft_toLeftOf="@id/productContent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:background="@color/lineColor"
                     android:layout_width="0dp"
-                    android:layout_height="1px"/>
+                    android:layout_height="1px"
+                    android:background="@color/lineColor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/productContent"
+                    app:layout_constraintRight_toRightOf="parent" />
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
@@ -340,12 +352,12 @@
                     app:layout_constraintTop_toTopOf="@+id/orderArrow" />
 
                 <View
-                    app:layout_constraintLeft_toLeftOf="@id/orderContent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:background="@color/lineColor"
                     android:layout_width="0dp"
-                    android:layout_height="1px"/>
+                    android:layout_height="1px"
+                    android:background="@color/lineColor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/orderContent"
+                    app:layout_constraintRight_toRightOf="parent" />
 
             </android.support.constraint.ConstraintLayout>
 
@@ -401,12 +413,12 @@
                     app:layout_constraintTop_toTopOf="@+id/payArrow" />
 
                 <View
-                    app:layout_constraintLeft_toLeftOf="@id/payContent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:background="@color/lineColor"
                     android:layout_width="0dp"
-                    android:layout_height="1px"/>
+                    android:layout_height="1px"
+                    android:background="@color/lineColor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/payContent"
+                    app:layout_constraintRight_toRightOf="parent" />
 
             </android.support.constraint.ConstraintLayout>
 
@@ -462,12 +474,12 @@
                     app:layout_constraintTop_toTopOf="@+id/kaipiaoArrow" />
 
                 <View
-                    app:layout_constraintLeft_toLeftOf="@id/kaipiaoContent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:background="@color/lineColor"
                     android:layout_width="0dp"
-                    android:layout_height="1px"/>
+                    android:layout_height="1px"
+                    android:background="@color/lineColor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/kaipiaoContent"
+                    app:layout_constraintRight_toRightOf="parent" />
 
             </android.support.constraint.ConstraintLayout>
         </LinearLayout>

@@ -114,5 +114,4 @@
     <dimen name="tab_height">48dp</dimen>
     <dimen name="divide_height">0.5dp</dimen>
     <dimen name="bottom_layout_high">60dp</dimen>
-    <dimen name="status_height">20dp</dimen>
 </resources>

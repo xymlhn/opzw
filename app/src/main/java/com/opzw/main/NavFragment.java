@@ -18,6 +18,7 @@ import com.opzw.guide.TestFragment;
 import com.opzw.guide.nav.BorderShape;
 import com.opzw.home.HomeFragment;
 import com.opzw.me.MeFragment;
+import com.opzw.order.OrderFragment;
 
 import java.util.List;
 
@@ -70,7 +71,7 @@ public class NavFragment extends BaseFragment implements View.OnClickListener{
 
         mNavSales.init(R.drawable.tab_icon_sales,
                 R.string.main_tab_name_sales,
-                TestFragment.class);
+                OrderFragment.class);
 
         mNavMe.init(R.drawable.tab_icon_me,
                 R.string.main_tab_name_my,

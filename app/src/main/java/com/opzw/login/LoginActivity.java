@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -106,6 +109,7 @@ public class LoginActivity extends Activity {
                                     protected void onSuccess(Result<Token> tokenResult) {
                                         hideLoading();
                                         MainActivity.openActivity(LoginActivity.this);
+                                        finish();
                                     }
 
                                     @Override
@@ -116,6 +120,12 @@ public class LoginActivity extends Activity {
                                 });
                     }
                 });
+        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+            return;
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(0xff508DFF);
     }
 
 

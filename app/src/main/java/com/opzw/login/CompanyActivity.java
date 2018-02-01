@@ -2,8 +2,11 @@ package com.opzw.login;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.opzw.R;
 import com.opzw.base.BaseActivity;
@@ -54,6 +57,12 @@ public class CompanyActivity extends BaseActivity {
         initTitle(R.string.title_company);
         recyclerView = findViewById(R.id.recyle);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+            return;
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(0xff508DFF);
     }
 
     @Override

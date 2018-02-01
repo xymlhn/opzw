@@ -1,5 +1,7 @@
 package com.opzw.home;
 
+import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.Rect;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -65,5 +67,4 @@ public class HomeFragment extends BaseFragment implements OnTabReselectListener 
         super.initData();
 
     }
-
 }

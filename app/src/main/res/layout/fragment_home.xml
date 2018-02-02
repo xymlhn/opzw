@@ -67,7 +67,7 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginTop="12dp"
-                        android:src="@mipmap/icon_company" />
+                        android:src="@mipmap/icon_lingjian" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -91,7 +91,7 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginTop="12dp"
-                        android:src="@mipmap/icon_company" />
+                        android:src="@mipmap/icon_chanliang" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -115,7 +115,7 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginTop="12dp"
-                        android:src="@mipmap/icon_company" />
+                        android:src="@mipmap/icon_yuce" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -139,7 +139,7 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginTop="12dp"
-                        android:src="@mipmap/icon_company" />
+                        android:src="@mipmap/icon_genzong" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -162,7 +162,7 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginTop="8dp"
-                        android:src="@mipmap/icon_company" />
+                        android:src="@mipmap/icon_duanliao" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -185,7 +185,7 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginTop="8dp"
-                        android:src="@mipmap/icon_company" />
+                        android:src="@mipmap/icon_jiaohuo" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -208,7 +208,7 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginTop="8dp"
-                        android:src="@mipmap/icon_company" />
+                        android:src="@mipmap/icon_xingneng" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -252,7 +252,7 @@
                     android:layout_height="20dp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginStart="12dp"
-                    android:src="@mipmap/icon_company"
+                    android:src="@mipmap/home_yujin"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -312,7 +312,7 @@
                     android:layout_height="20dp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginStart="12dp"
-                    android:src="@mipmap/icon_company"
+                    android:src="@mipmap/home_yece"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -373,7 +373,7 @@
                     android:layout_height="20dp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginStart="12dp"
-                    android:src="@mipmap/icon_company"
+                    android:src="@mipmap/home_pay"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -434,7 +434,7 @@
                     android:layout_height="20dp"
                     android:layout_marginLeft="12dp"
                     android:layout_marginStart="12dp"
-                    android:src="@mipmap/icon_company"
+                    android:src="@mipmap/home_kai"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

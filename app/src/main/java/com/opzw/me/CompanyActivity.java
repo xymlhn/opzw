@@ -1,28 +1,20 @@
-package com.opzw.login;
+package com.opzw.me;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.google.gson.Gson;
-import com.opzw.App;
 import com.opzw.R;
 import com.opzw.base.BaseActivity;
+import com.opzw.bean.Company;
 import com.opzw.bean.Result;
 import com.opzw.bean.Token;
-import com.opzw.bean.User;
 import com.opzw.service.ApiManager;
 import com.opzw.service.CallbackWrapper;
-import com.opzw.utils.LogUtils;
 import com.opzw.utils.SharedPrefUtils;
 import com.opzw.utils.ToastUtils;
 
@@ -32,8 +24,6 @@ import java.util.List;
 import java.util.Map;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -46,13 +36,13 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 
-public class PersonalActivity extends BaseActivity {
+public class CompanyActivity extends BaseActivity {
     private RecyclerView recyclerView;
     private PersonalAdapter mAdapter;
     private List<List<String>> objectList;
 
     public static void openActivity(Context context) {
-        Intent intent = new Intent(context, PersonalActivity.class);
+        Intent intent = new Intent(context, CompanyActivity.class);
         context.startActivity(intent);
     }
 
@@ -63,7 +53,7 @@ public class PersonalActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        initTitle(R.string.title_person);
+        initTitle(R.string.title_company);
         recyclerView = findViewById(R.id.recyle);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
@@ -90,45 +80,68 @@ public class PersonalActivity extends BaseActivity {
         map.put("companyId",token.getCompanyId());
         map.put("appId",token.getAppId());
         map.put("userId",token.getId());
-        map.put("userName",token.getUserName());
-        ApiManager.getInstence().getService().getUser(map)
+        ApiManager.getInstence().getService().getCompany(map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new CallbackWrapper<Result<User>>() {
+                .subscribeWith(new CallbackWrapper<Result<Company>>() {
                     @Override
-                    protected void onSuccess(Result<User> userResult) {
+                    protected void onSuccess(Result<Company> userResult) {
 
-                        List<String> strings1 = new ArrayList<>();
-                        strings1.add("用户名");
-                        strings1.add(userResult.getData().getUsername());
-
-                        List<String> strings2 = new ArrayList<>();
-                        strings2.add("手机号");
-                        strings2.add(userResult.getData().getMobile());
-
-                        List<String> strings3 = new ArrayList<>();
-                        strings3.add("姓名");
-                        strings3.add(userResult.getData().getNickname());
-
-                        List<String> strings4 = new ArrayList<>();
-                        strings4.add("所属公司");
-                        strings4.add(userResult.getData().getCompanyName());
-
-                        List<String> strings5 = new ArrayList<>();
-                        strings5.add("角色");
-                        strings5.add(userResult.getData().getUsername());
-                        objectList.add(strings1);
-                        objectList.add(strings2);
-                        objectList.add(strings3);
-                        objectList.add(strings4);
-                        objectList.add(strings5);
+                        generalList(userResult);
                         mAdapter.notifyDataSetChanged();
                     }
 
                     @Override
                     protected void onFail(String t) {
-                        ToastUtils.showToastShort(PersonalActivity.this,t);
+                        ToastUtils.showToastShort(CompanyActivity.this,t);
                     }
                 });
+    }
+
+    private void generalList(Result<Company> userResult) {
+        List<String> strings1 = new ArrayList<>();
+        strings1.add("公司名称");
+        strings1.add(userResult.getData().getName());
+
+        List<String> strings2 = new ArrayList<>();
+        strings2.add("税号");
+        strings2.add(userResult.getData().getTaxNum());
+
+        List<String> strings3 = new ArrayList<>();
+        strings3.add("开户行");
+        strings3.add(userResult.getData().getBankAccount());
+
+        List<String> strings4 = new ArrayList<>();
+        strings4.add("开户行账号");
+        strings4.add(userResult.getData().getBank());
+
+        List<String> strings5 = new ArrayList<>();
+        strings5.add("开票地址");
+        strings5.add(userResult.getData().getBillAddress());
+
+        List<String> strings6 = new ArrayList<>();
+        strings6.add("传真");
+        strings6.add(userResult.getData().getFaxNum());
+
+        List<String> strings7 = new ArrayList<>();
+        strings7.add("一般纳税人");
+        strings7.add(userResult.getData().getBillAddress());
+
+        List<String> strings8 = new ArrayList<>();
+        strings8.add("公司类型");
+        strings8.add(userResult.getData().getCompanyTypes());
+
+        List<String> strings9 = new ArrayList<>();
+        strings9.add("认证状态");
+        strings9.add(userResult.getData().getAuthStatus() == 0 ? "未认证":"已认证");
+        objectList.add(strings1);
+        objectList.add(strings2);
+        objectList.add(strings3);
+        objectList.add(strings4);
+        objectList.add(strings5);
+        objectList.add(strings6);
+        objectList.add(strings7);
+        objectList.add(strings8);
+        objectList.add(strings9);
     }
 }

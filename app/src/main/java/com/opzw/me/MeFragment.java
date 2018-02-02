@@ -1,13 +1,10 @@
 package com.opzw.me;
 
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.jakewharton.rxbinding2.view.RxView;
-import com.opzw.App;
 import com.opzw.R;
 import com.opzw.base.BaseFragment;
 import com.opzw.bean.Company;
@@ -15,13 +12,9 @@ import com.opzw.bean.Result;
 import com.opzw.guide.nav.OnTabReselectListener;
 import com.opzw.bean.Token;
 import com.opzw.bean.User;
-import com.opzw.login.CompanyActivity;
 import com.opzw.login.LoginActivity;
-import com.opzw.login.PersonalActivity;
-import com.opzw.main.MainActivity;
 import com.opzw.service.ApiManager;
 import com.opzw.service.CallbackWrapper;
-import com.opzw.utils.DialogUtils;
 import com.opzw.utils.SharedPrefUtils;
 import com.opzw.utils.ToastUtils;
 

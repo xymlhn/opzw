@@ -1,40 +1,10 @@
 package com.opzw.home;
 
-import android.graphics.Color;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.TextView;
 
-import com.jakewharton.rxbinding2.view.RxView;
 import com.opzw.R;
 import com.opzw.base.BaseFragment;
-import com.opzw.bean.Result;
-import com.opzw.bean.Token;
-import com.opzw.bean.User;
 import com.opzw.guide.nav.OnTabReselectListener;
-import com.opzw.login.CompanyActivity;
-import com.opzw.login.LoginActivity;
-import com.opzw.login.PersonalActivity;
-import com.opzw.login.PersonalAdapter;
-import com.opzw.service.ApiManager;
-import com.opzw.service.CallbackWrapper;
-import com.opzw.utils.SharedPrefUtils;
-import com.opzw.utils.ToastUtils;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * 文 件 名: TestFragment

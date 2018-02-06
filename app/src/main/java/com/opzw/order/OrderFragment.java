@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.opzw.R;
 import com.opzw.base.BaseFragment;
@@ -14,13 +13,11 @@ import com.opzw.guide.nav.OnTabReselectListener;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
-import net.lucode.hackware.magicindicator.buildins.UIUtil;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
 
@@ -42,7 +39,7 @@ public class OrderFragment extends BaseFragment implements OnTabReselectListener
     private ViewPager mPager;
     private static final String[] CHANNELS = new String[]{"采购订单", "销售订单" };
     private List<String> mDataList = Arrays.asList(CHANNELS);
-    private ExamplePagerAdapter mExamplePagerAdapter;
+    private OrderPagerAdapter mOrderPagerAdapter;
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_order;
@@ -53,12 +50,12 @@ public class OrderFragment extends BaseFragment implements OnTabReselectListener
         super.initWidget(root);
         mPager = root.findViewById(R.id.view_pager);
         PurchaseFragment testFragment1 = new PurchaseFragment();
-        TestFragment testFragment2 = new TestFragment();
+        PurchaseFragment testFragment2 = new PurchaseFragment();
         List<Fragment> list = new ArrayList<Fragment>();
         list.add(testFragment1);
         list.add(testFragment2);
-        mExamplePagerAdapter = new ExamplePagerAdapter(getActivity().getSupportFragmentManager(),list);
-        mPager.setAdapter(mExamplePagerAdapter);
+        mOrderPagerAdapter = new OrderPagerAdapter(getActivity().getSupportFragmentManager(),list);
+        mPager.setAdapter(mOrderPagerAdapter);
 
         initMagicIndicator1(root);
 

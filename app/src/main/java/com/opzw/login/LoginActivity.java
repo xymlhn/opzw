@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,11 +26,19 @@ import com.opzw.main.MainActivity;
 import com.opzw.service.ApiManager;
 import com.opzw.service.CallbackWrapper;
 import com.opzw.utils.DialogUtils;
+import com.opzw.utils.Installation;
 import com.opzw.utils.SharedPrefUtils;
 import com.opzw.utils.ToastUtils;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -91,6 +101,7 @@ public class LoginActivity extends Activity {
                         Map<String, Object> map = new HashMap<String, Object>() {{
                             put("username", accountText.getText());
                             put("password", passwordText.getText());
+                            put("deviceNumber", Installation.id(LoginActivity.this));
                         }};
                         progressDialog = DialogUtils.showLoading(LoginActivity.this, R.string.loading);
                         ApiManager.getInstence().getService().login(map)
@@ -99,7 +110,6 @@ public class LoginActivity extends Activity {
                                     @Override
                                     public void accept(Result<Token> tokenResult) throws Exception {
                                         //缓存token
-                                        tokenResult.getData().setUserName(accountText.getText().toString());
                                         SharedPrefUtils.setParam(App.getContext(),SharedPrefUtils.TOKEN, new Gson().toJson(tokenResult.getData()));
                                     }
                                 })
@@ -137,8 +147,4 @@ public class LoginActivity extends Activity {
         progressDialog = null;
     }
 
-
-    public void onLoginSuccess(Token user) {
-
-    }
 }

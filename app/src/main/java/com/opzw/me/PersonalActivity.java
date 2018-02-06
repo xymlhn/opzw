@@ -75,13 +75,7 @@ public class PersonalActivity extends BaseActivity {
         mAdapter = new PersonalAdapter(this, objectList);
         recyclerView.setAdapter(mAdapter);
 
-        Token token = SharedPrefUtils.getToken();
-        Map<String,Object> map = new HashMap<>();
-        map.put("companyId",token.getCompanyId());
-        map.put("appId",token.getAppId());
-        map.put("userId",token.getId());
-        map.put("userName",token.getUserName());
-        ApiManager.getInstence().getService().getUser(map)
+        ApiManager.getInstence().getService().getUser()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new CallbackWrapper<Result<User>>() {

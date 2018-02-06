@@ -27,13 +27,13 @@ import retrofit2.http.QueryMap;
 
 
 public interface IService {
-    @POST("/isp/port/user-login/")
+    @POST("/isp/port/user-login-new/")
     @FormUrlEncoded
     Observable<Result<Token>> login(@FieldMap Map<String,Object> map);
 
-    @GET("/isp/port/get-user-details/")
-    Observable<Result<User>> getUser(@QueryMap Map<String,Object> map);
+    @GET("/isp/port/get-user-details-new/")
+    Observable<Result<User>> getUser();
 
-    @GET("/isp/port/get-company-details/")
-    Observable<Result<Company>> getCompany(@QueryMap Map<String,Object> map);
+    @GET("/isp/port/get-company-details-new/")
+    Observable<Result<Company>> getCompany();
 }

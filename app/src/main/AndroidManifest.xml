@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.opzw">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -25,12 +23,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".guide.AdActivity" />
-        <activity android:name=".guide.GuideActivity" />
-        <activity android:name=".main.MainActivity"></activity>
-        <activity android:name=".login.LoginActivity"></activity>
-        <activity android:name=".me.PersonalActivity"></activity>
-        <activity android:name=".me.CompanyActivity"></activity>
+        <activity
+            android:name=".guide.AdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".guide.GuideActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".me.PersonalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".me.CompanyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.ScheduleActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".part.PartActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

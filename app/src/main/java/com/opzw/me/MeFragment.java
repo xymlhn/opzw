@@ -68,12 +68,8 @@ public class MeFragment extends BaseFragment implements OnTabReselectListener {
     protected void initData() {
         super.initData();
         Token token = SharedPrefUtils.getToken();
-        Map<String,Object> map = new HashMap<>();
-        map.put("companyId",token.getCompanyId());
-        map.put("appId",token.getAppId());
-        map.put("userId",token.getId());
-        map.put("userName",token.getUserName());
-        ApiManager.getInstence().getService().getUser(map)
+
+        ApiManager.getInstence().getService().getUser()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new CallbackWrapper<Result<User>>() {
@@ -88,11 +84,8 @@ public class MeFragment extends BaseFragment implements OnTabReselectListener {
                         ToastUtils.showToastShort(getContext(),t);
                     }
                 });
-        Map<String,Object> map1 = new HashMap<>();
-        map1.put("companyId",token.getCompanyId());
-        map1.put("appId",token.getAppId());
-        map1.put("userId",token.getId());
-        ApiManager.getInstence().getService().getCompany(map1)
+
+        ApiManager.getInstence().getService().getCompany()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new CallbackWrapper<Result<Company>>() {

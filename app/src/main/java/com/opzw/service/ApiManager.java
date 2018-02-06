@@ -1,7 +1,14 @@
 package com.opzw.service;
 
 import com.opzw.BuildConfig;
+import com.opzw.utils.SharedPrefUtils;
 
+import java.io.IOException;
+
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
@@ -35,15 +42,29 @@ public class ApiManager {
      * @return
      */
     public IService getService(){
-        if (mUserApi == null) {
-            Retrofit retrofit = new Retrofit.Builder()
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .baseUrl(BuildConfig.SERVER_URL)
-                    .addConverterFactory(CGsonConverterFactory.create())
-                    .build();
 
-            mUserApi = retrofit.create(IService.class);
-        }
+        OkHttpClient.Builder client = new OkHttpClient.Builder();
+        client.addInterceptor(new Interceptor() {
+                                  @Override
+                                  public Response intercept(Interceptor.Chain chain) throws IOException {
+                                      Request original = chain.request();
+                                      Request request = original.newBuilder()
+                                              .header("token", SharedPrefUtils.getToken() == null ? "" : SharedPrefUtils.getToken().getToken())
+                                              .method(original.method(), original.body())
+                                              .build();
+
+                                      return chain.proceed(request);
+                                  }
+                              });
+        Retrofit retrofit = new Retrofit.Builder()
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .baseUrl(BuildConfig.SERVER_URL)
+                .addConverterFactory(CGsonConverterFactory.create())
+                .client(client.build())
+                .build();
+
+        mUserApi = retrofit.create(IService.class);
+
         return mUserApi;
     }
 }

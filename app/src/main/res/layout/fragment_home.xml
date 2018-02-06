@@ -67,7 +67,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
-                    android:id="@+id/lingjianBtn"
+                    android:id="@+id/partBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="88dp"
                     android:orientation="vertical"
@@ -95,7 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="88dp"
                     android:orientation="vertical"
-                    app:layout_constraintLeft_toRightOf="@+id/lingjianBtn"
+                    app:layout_constraintLeft_toRightOf="@+id/partBtn"
                     app:layout_constraintRight_toLeftOf="@+id/yuceBtn"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -167,8 +167,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="88dp"
                     android:orientation="vertical"
-                    app:layout_constraintLeft_toLeftOf="@id/lingjianBtn"
-                    app:layout_constraintTop_toBottomOf="@+id/lingjianBtn">
+                    app:layout_constraintLeft_toLeftOf="@id/partBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/partBtn">
 
                     <ImageView
                         android:layout_width="45dp"
@@ -191,7 +191,7 @@
                     android:layout_height="88dp"
                     android:orientation="vertical"
                     app:layout_constraintLeft_toLeftOf="@+id/chanliangBtn"
-                    app:layout_constraintTop_toBottomOf="@+id/lingjianBtn">
+                    app:layout_constraintTop_toBottomOf="@+id/partBtn">
 
                     <ImageView
                         android:layout_width="45dp"
@@ -214,7 +214,7 @@
                     android:layout_height="88dp"
                     android:orientation="vertical"
                     app:layout_constraintLeft_toLeftOf="@+id/yuceBtn"
-                    app:layout_constraintTop_toBottomOf="@+id/lingjianBtn">
+                    app:layout_constraintTop_toBottomOf="@+id/partBtn">
 
                     <ImageView
                         android:layout_width="45dp"

@@ -75,12 +75,8 @@ public class CompanyActivity extends BaseActivity {
         mAdapter = new PersonalAdapter(this, objectList);
         recyclerView.setAdapter(mAdapter);
 
-        Token token = SharedPrefUtils.getToken();
-        Map<String,Object> map = new HashMap<>();
-        map.put("companyId",token.getCompanyId());
-        map.put("appId",token.getAppId());
-        map.put("userId",token.getId());
-        ApiManager.getInstence().getService().getCompany(map)
+
+        ApiManager.getInstence().getService().getCompany()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new CallbackWrapper<Result<Company>>() {

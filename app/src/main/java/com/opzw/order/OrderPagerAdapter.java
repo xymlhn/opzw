@@ -15,15 +15,15 @@ import java.util.List;
  * Created by hackware on 2016/9/10.
  */
 
-public class ExamplePagerAdapter extends FragmentPagerAdapter {
+public class OrderPagerAdapter extends FragmentPagerAdapter {
 
     List<Fragment> list;
 
-    public ExamplePagerAdapter(FragmentManager fm) {
+    public OrderPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
-    public ExamplePagerAdapter(FragmentManager fm,List<Fragment> list) {
+    public OrderPagerAdapter(FragmentManager fm, List<Fragment> list) {
         super(fm);
         this.list=list;
     }//写构造方法，方便赋值调用

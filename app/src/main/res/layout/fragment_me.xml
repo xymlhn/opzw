@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#EEEEEE"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -28,21 +29,24 @@
         android:id="@+id/companyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
         android:text="天津首钢钢铁贸易有限公司"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintLeft_toRightOf="@+id/company"
-        app:layout_constraintTop_toTopOf="@+id/company" />
+        app:layout_constraintTop_toTopOf="@+id/company"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="10dp" />
 
     <ImageView
         android:id="@+id/icon_phone"
         android:layout_width="18dp"
         android:layout_height="18dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:src="@mipmap/icon_phone"
         app:layout_constraintBottom_toBottomOf="@+id/company"
         app:layout_constraintLeft_toRightOf="@+id/company" />

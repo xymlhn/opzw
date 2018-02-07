@@ -62,7 +62,7 @@ public class PartActivity extends BaseActivity {
         rightAdapter.setOnItemClickListener(new MostRightAdapter.MyItemClickListener() {
             @Override
             public void onItemClick(View view, int postion) {
-
+                PartListActivity.openActivity(PartActivity.this);
             }
         });
         getLeftName();

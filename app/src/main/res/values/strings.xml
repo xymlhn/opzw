@@ -11,6 +11,7 @@
     <string name="title_person">个人资料</string>
     <string name="title_schedule">待办事项</string>
     <string name="title_part">零件管理</string>
+    <string name="title_part_list">零件详情</string>
     <string name="title_company">公司资料</string>
     <string name="home_lingjian">零件管理</string>
     <string name="home_chanliang">产量维护</string>

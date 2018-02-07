@@ -28,7 +28,7 @@ public class PartListAdapter extends RecyclerView.Adapter {
 
     private Context mContext;
     private List<Car> mList = new ArrayList<>();
-
+    private ItemClickListener mItemClickListener;
     public PartListAdapter(Context context) {
         mContext = context;
     }
@@ -43,7 +43,7 @@ public class PartListAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(mContext).inflate(R.layout.adapter_part_list, parent, false);
-        return new ItemViewHolder(view);
+        return new ItemViewHolder(view, mItemClickListener);
     }
 
     @Override
@@ -61,22 +61,35 @@ public class PartListAdapter extends RecyclerView.Adapter {
         return mList == null ? 0 : mList.size();
     }
 
+    public void setOnItemClickListener(ItemClickListener listener) {
+        this.mItemClickListener = listener;
+    }
 
-
-    public class ItemViewHolder extends RecyclerView.ViewHolder {
+    public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView code;
         TextView name;
         TextView spec;
         TextView guige;
         ImageView icon;
-
-        public ItemViewHolder(View itemView) {
+        private ItemClickListener mListener;
+        public ItemViewHolder(View itemView, ItemClickListener listener) {
             super(itemView);
             code = itemView.findViewById(R.id.code);
             spec = itemView.findViewById(R.id.spec);
             name = itemView.findViewById(R.id.name);
             guige = itemView.findViewById(R.id.guige);
             icon = itemView.findViewById(R.id.icon);
+            this.mListener = listener;
+            itemView.setOnClickListener(this);
         }
+        @Override
+        public void onClick(View v) {
+            if (mListener != null) {
+                mListener.onItemClick(v, getLayoutPosition());
+            }
+        }
+    }
+    public interface ItemClickListener {
+        void onItemClick(View view, int postion);
     }
 }

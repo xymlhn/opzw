@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.opzw.R;
+import com.opzw.bean.MostSeriesBean;
 
 import java.util.ArrayList;
 import java.util.List;

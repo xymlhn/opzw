@@ -2,7 +2,6 @@ package com.opzw.part;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -73,7 +72,12 @@ public class PartListActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-
+        leftAdapter.setOnItemClickListener(new PartListAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int postion) {
+                PartDetailActivity.openActivity(PartListActivity.this);
+            }
+        });
     }
 
     @Override

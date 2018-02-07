@@ -1,4 +1,4 @@
-package com.opzw.part;
+package com.opzw.bean;
 
 /**
  * 文 件 名: MostSeriesBean

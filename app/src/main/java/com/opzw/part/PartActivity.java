@@ -9,7 +9,8 @@ import android.view.View;
 
 import com.opzw.R;
 import com.opzw.base.BaseActivity;
-import com.opzw.me.CompanyActivity;
+import com.opzw.bean.ChoiceLeftBean;
+import com.opzw.bean.MostSeriesBean;
 
 import java.util.ArrayList;
 import java.util.List;

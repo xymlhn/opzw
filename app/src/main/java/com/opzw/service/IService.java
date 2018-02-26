@@ -2,11 +2,14 @@ package com.opzw.service;
 
 
 
+import com.opzw.bean.CarModel;
 import com.opzw.bean.Company;
+import com.opzw.bean.Parts;
 import com.opzw.bean.Result;
 import com.opzw.bean.Token;
 import com.opzw.bean.User;
 
+import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -14,7 +17,6 @@ import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.QueryMap;
 
 /**
  * 文 件 名: IService
@@ -36,4 +38,10 @@ public interface IService {
 
     @GET("/isp/port/get-company-details-new/")
     Observable<Result<Company>> getCompany();
+
+    @GET("/isp/port/new/get-parts-filter/")
+    Observable<Result<Parts>> getPartFilter();
+
+    @POST("/isp/port/new/isp-to-do3/")
+    Observable<Result<Parts>> payNotice(@FieldMap Map<String,Object> map);
 }

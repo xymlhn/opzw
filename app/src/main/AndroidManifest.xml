@@ -43,16 +43,17 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".home.ScheduleActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".part.PartActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".part.PartListActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".part.PartDetailActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity android:name=".demand.DemandActivity"></activity>
     </application>
 
 </manifest>

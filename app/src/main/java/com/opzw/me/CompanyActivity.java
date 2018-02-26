@@ -100,27 +100,27 @@ public class CompanyActivity extends BaseActivity {
 
         List<String> strings3 = new ArrayList<>();
         strings3.add("开户行");
-        strings3.add(userResult.getData().getBankAccount());
+        strings3.add(userResult.getData().getBank());
 
         List<String> strings4 = new ArrayList<>();
         strings4.add("开户行账号");
         strings4.add(userResult.getData().getBank());
 
-        List<String> strings5 = new ArrayList<>();
-        strings5.add("开票地址");
-        strings5.add(userResult.getData().getBillAddress());
+//        List<String> strings5 = new ArrayList<>();
+//        strings5.add("开票地址");
+//        strings5.add(userResult.getData().getBillAddress());
 
         List<String> strings6 = new ArrayList<>();
         strings6.add("传真");
         strings6.add(userResult.getData().getFaxNum());
 
-        List<String> strings7 = new ArrayList<>();
-        strings7.add("一般纳税人");
-        strings7.add(userResult.getData().getBillAddress());
+//        List<String> strings7 = new ArrayList<>();
+//        strings7.add("一般纳税人");
+//        strings7.add(userResult.getData().getBillAddress());
 
         List<String> strings8 = new ArrayList<>();
         strings8.add("公司类型");
-        strings8.add(userResult.getData().getCompanyTypes());
+        strings8.add(Company.listToString(userResult.getData().getCompanyType()));
 
         List<String> strings9 = new ArrayList<>();
         strings9.add("认证状态");
@@ -129,9 +129,9 @@ public class CompanyActivity extends BaseActivity {
         objectList.add(strings2);
         objectList.add(strings3);
         objectList.add(strings4);
-        objectList.add(strings5);
+//        objectList.add(strings5);
         objectList.add(strings6);
-        objectList.add(strings7);
+//        objectList.add(strings7);
         objectList.add(strings8);
         objectList.add(strings9);
     }

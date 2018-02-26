@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.opzw.R;
+import com.opzw.bean.CarModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ public class MostLeftAdapter extends RecyclerView.Adapter {
 
     private Context mContext;
 
-    private List<String> mList = new ArrayList<>();
+    private List<CarModel> mList = new ArrayList<>();
     private MyItemClickListener mItemClickListener;
     private int mPosition;
     private static int TYPE_NORMAL = 101;
@@ -37,11 +38,11 @@ public class MostLeftAdapter extends RecyclerView.Adapter {
         mPosition = 0;
     }
 
-    public void setList(List<String> list) {
+    public void setList(List<CarModel> list) {
         mList = list;
     }
 
-    public List<String> getList() {
+    public List<CarModel> getList() {
         return mList;
     }
 
@@ -64,7 +65,7 @@ public class MostLeftAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ItemViewHolder item = (ItemViewHolder) holder;
-        item.mostLeftText.setText(mList.get(position));
+        item.mostLeftText.setText(mList.get(position).getName());
     }
 
     @Override

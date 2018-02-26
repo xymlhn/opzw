@@ -19,6 +19,12 @@ public class User {
 
     private String username;
 
+    private String mailing;
+
+    private Integer companyStatus; //认证状态：10，未认证；20，认证中；30，认证通过；40，认证不通过
+
+    private Integer companyType; //公司类型 0:汽车厂 1.终端
+
     public String getNickname() {
         return nickname;
     }
@@ -50,4 +56,29 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public String getMailing() {
+        return mailing;
+    }
+
+    public void setMailing(String mailing) {
+        this.mailing = mailing;
+    }
+
+    public Integer getCompanyStatus() {
+        return companyStatus;
+    }
+
+    public void setCompanyStatus(Integer companyStatus) {
+        this.companyStatus = companyStatus;
+    }
+
+    public Integer getCompanyType() {
+        return companyType;
+    }
+
+    public void setCompanyType(Integer companyType) {
+        this.companyType = companyType;
+    }
+
 }

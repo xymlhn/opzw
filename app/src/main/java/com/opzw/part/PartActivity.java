@@ -6,14 +6,21 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import com.opzw.R;
 import com.opzw.base.BaseActivity;
 import com.opzw.bean.ChoiceLeftBean;
-import com.opzw.bean.MostSeriesBean;
+import com.opzw.bean.Parts;
+import com.opzw.bean.Result;
+import com.opzw.service.ApiManager;
+import com.opzw.service.CallbackWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 文 件 名: PartActivity
@@ -28,10 +35,11 @@ import java.util.List;
 public class PartActivity extends BaseActivity {
     RecyclerView leftListView;
     RecyclerView rightListView;
-
+    private TextView customNum;
+    private TextView carNum;
+    private TextView partNum;
     private MostLeftAdapter leftAdapter;
     private MostRightAdapter rightAdapter;
-    List<ChoiceLeftBean> mPriceList = new ArrayList<>();
 
     public static void openActivity(Context context) {
         Intent intent = new Intent(context, PartActivity.class);
@@ -50,7 +58,9 @@ public class PartActivity extends BaseActivity {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         leftListView = findViewById(R.id.left_list);
         rightListView = findViewById(R.id.right_list);
-
+        customNum = findViewById(R.id.customNum);
+        carNum = findViewById(R.id.carNum);
+        partNum = findViewById(R.id.partNum);
         leftListView.setLayoutManager(layoutManager);
         leftAdapter = new MostLeftAdapter(this);
         leftListView.setAdapter(leftAdapter);
@@ -60,90 +70,48 @@ public class PartActivity extends BaseActivity {
         rightListView.setLayoutManager(gridLayoutManager);
         rightAdapter = new MostRightAdapter(this);
         rightListView.setAdapter(rightAdapter);
+
+    }
+
+
+    @Override
+    protected void setListener() {
         rightAdapter.setOnItemClickListener(new MostRightAdapter.MyItemClickListener() {
             @Override
             public void onItemClick(View view, int postion) {
                 PartListActivity.openActivity(PartActivity.this);
             }
         });
-        getLeftName();
-    }
-
-    private void requestRightData(int position) {
-        //这里为了方便，直接更改左边的数据为右边加载的数据了，实际开发中改为所传参数即可
-        String category = leftAdapter.getList().get(position);
-        List<MostSeriesBean> list = new ArrayList<>();
-        MostSeriesBean beans = new MostSeriesBean();
-        beans.setName(category);
-        list.add(beans);
-
-        MostSeriesBean beans1 = new MostSeriesBean();
-        beans1.setName(category);
-        list.add(beans1);
-
-        MostSeriesBean beans2 = new MostSeriesBean();
-        beans2.setName(category);
-        list.add(beans2);
-
-        getRightData(list);
-
-    }
-
-    private void getRightData(List<MostSeriesBean> beans) {
-        rightAdapter.setList(beans);
-        rightAdapter.notifyDataSetChanged();
-    }
-
-    //设置左边数据源
-    private void getLeftName() {
-
-        for (int i = 0; i < 5; i++) {
-            ChoiceLeftBean bean = new ChoiceLeftBean();
-            if (i == 1) {
-                bean.setName("宝马");
-            }
-            if (i == 2) {
-                bean.setName("奔驰");
-            }
-            if (i == 3) {
-                bean.setName("凯迪拉克");
-            }
-            if (i == 4) {
-                bean.setName("现代");
-            }
-            if (i == 0) {
-                bean.setName("SUV");
-            }
-            mPriceList.add(bean);
-        }
-
-        List<String> prices = new ArrayList<>();
-        for (ChoiceLeftBean priceBean : mPriceList) {
-            prices.add(priceBean.getName());
-        }
-        leftAdapter.setList(prices);
-        //默认根据left的第一项数据去加载右边得数据
-        requestRightData(0);
-        leftAdapter.notifyDataSetChanged();
-        leftAdapter.setOnItemClickListener(new MostLeftAdapter.MyItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                //设置position，根据position的状态刷新
-                leftAdapter.setPosition(position);
-                leftAdapter.notifyDataSetChanged();
-                requestRightData(position);
-            }
-        });
-
-    }
-
-    @Override
-    protected void setListener() {
 
     }
 
     @Override
     protected void initData() {
+        ApiManager.getInstence().getService().getPartFilter()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new CallbackWrapper<Result<Parts>>() {
+                    @Override
+                    protected void onSuccess(Result<Parts> userResult) {
+                        customNum.setText(userResult.getData().getC1() + "");
+                        carNum.setText(userResult.getData().getC2() + "");
+                        partNum.setText(userResult.getData().getC3() + "");
+                        leftAdapter.setList(userResult.getData().getCarCustomerList());
+                        leftAdapter.notifyDataSetChanged();
+                        leftAdapter.setOnItemClickListener(new MostLeftAdapter.MyItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                //设置position，根据position的状态刷新
+                                leftAdapter.setPosition(position);
+                                leftAdapter.notifyDataSetChanged();
+                            }
+                        });
+                    }
 
+                    @Override
+                    protected void onFail(String t) {
+
+                    }
+                });
     }
 }

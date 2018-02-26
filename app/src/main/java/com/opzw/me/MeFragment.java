@@ -77,6 +77,7 @@ public class MeFragment extends BaseFragment implements OnTabReselectListener {
                     protected void onSuccess(Result<User> userResult) {
                         phontText.setText(userResult.getData().getMobile());
                         companyText.setText(userResult.getData().getCompanyName());
+                        company.setImageResource(userResult.getData().getCompanyStatus() != 30 ?R.mipmap.auth_disable : R.mipmap.auth);
                     }
 
                     @Override
@@ -85,20 +86,6 @@ public class MeFragment extends BaseFragment implements OnTabReselectListener {
                     }
                 });
 
-        ApiManager.getInstence().getService().getCompany()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new CallbackWrapper<Result<Company>>() {
-                    @Override
-                    protected void onSuccess(Result<Company> userResult) {
-                        company.setImageResource(userResult.getData().getAuthStatus() != 30 ?R.mipmap.auth_disable : R.mipmap.auth);
-                    }
-
-                    @Override
-                    protected void onFail(String t) {
-                        ToastUtils.showToastShort(getContext(),t);
-                    }
-                });
 
         RxView.clicks(logoutBtn)
                 .throttleFirst(1, TimeUnit.SECONDS)

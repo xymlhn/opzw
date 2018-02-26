@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.opzw.R;
 import com.opzw.base.BaseFragment;
+import com.opzw.demand.DemandActivity;
 import com.opzw.guide.nav.OnTabReselectListener;
 import com.opzw.part.PartActivity;
 
@@ -40,6 +41,7 @@ public class HomeFragment extends BaseFragment implements OnTabReselectListener 
     private ViewPager mViewPager;
     private ConstraintLayout payBtn;
     private LinearLayout partBtn;
+    private LinearLayout yuceBtn;
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_home;
@@ -51,6 +53,7 @@ public class HomeFragment extends BaseFragment implements OnTabReselectListener 
         mViewPager = root.findViewById(R.id.view_pager);
         payBtn = root.findViewById(R.id.payBtn);
         partBtn = root.findViewById(R.id.partBtn);
+        yuceBtn = root.findViewById(R.id.yuceBtn);
         mViewPager.setAdapter(mExamplePagerAdapter);
         initMagicIndicator1(root);
 
@@ -70,6 +73,15 @@ public class HomeFragment extends BaseFragment implements OnTabReselectListener 
                     @Override
                     public void accept(Object o) throws Exception {
                         PartActivity.openActivity(getContext());
+                    }
+                });
+        RxView.clicks(yuceBtn)
+                .throttleFirst(1, TimeUnit.SECONDS)
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(Object o) throws Exception {
+                        DemandActivity.openActivity(getContext());
                     }
                 });
     }

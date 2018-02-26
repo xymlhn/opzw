@@ -15,19 +15,15 @@ import java.util.List;
 public class Company {
     private String bank;
 
-    private String bankAccount;
-
-    private String billAddress;
-
     private List<String> companyType;
 
     private String name;
 
     private String texType;
 
-    private String taxNum;
+    private String taxNum;//税号
 
-    private String faxNum;
+    private String faxNum;//传真
 
     private Integer authStatus;
 
@@ -37,22 +33,6 @@ public class Company {
 
     public void setBank(String bank) {
         this.bank = bank;
-    }
-
-    public String getBankAccount() {
-        return bankAccount;
-    }
-
-    public void setBankAccount(String bankAccount) {
-        this.bankAccount = bankAccount;
-    }
-
-    public String getBillAddress() {
-        return billAddress;
-    }
-
-    public void setBillAddress(String billAddress) {
-        this.billAddress = billAddress;
     }
 
     public List<String> getCompanyType() {
@@ -101,10 +81,6 @@ public class Company {
 
     public void setAuthStatus(Integer authStatus) {
         this.authStatus = authStatus;
-    }
-
-    public String getCompanyTypes(){
-        return listToString(companyType);
     }
 
     public static String listToString(List<String> list){

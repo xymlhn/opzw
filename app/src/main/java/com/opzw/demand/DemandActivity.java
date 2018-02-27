@@ -64,7 +64,7 @@ public class DemandActivity extends BaseActivity {
         listAdapter.setOnItemClickListener(new DemandAdapter.ItemClickListener() {
             @Override
             public void onItemClick(View view, int postion) {
-
+                DemandDetailActivity.openActivity(DemandActivity.this);
             }
         });
     }

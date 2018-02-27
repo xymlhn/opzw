@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteColor"
+    android:orientation="vertical"
+    tools:context="com.opzw.demand.DemandActivity">
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/whiteColor"
+                android:orientation="horizontal"
+                android:paddingLeft="37dp"
+                android:paddingRight="37dp"
+                android:paddingTop="9dp">
+
+                <LinearLayout
+                    android:id="@+id/car"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="2种车型"
+                        android:textColor="#FFF87E2A"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/part"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="23种零件"
+                        android:textColor="#FFF87E2A"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/type"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="1个品种"
+                        android:textColor="#FFF87E2A"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:background="@color/whiteColor"
+                android:orientation="horizontal"
+                android:paddingLeft="37dp"
+                android:paddingRight="37dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="12dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@mipmap/down_arrow" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="12dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@mipmap/down_arrow" />
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="12dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@mipmap/down_arrow" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/whiteColor"
+                android:orientation="horizontal"
+                android:paddingLeft="37dp"
+                android:paddingRight="37dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="2种车型"
+                        android:textColor="#FFF87E2A"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="23种零件"
+                        android:textColor="#FFF87E2A"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="1个品种"
+                        android:textColor="#FFF87E2A"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="9dp"
+                android:paddingLeft="37dp"
+                android:paddingTop="8dp"
+                android:text="预测用钢量 = 理论用钢量-在途-在库\n理论用钢量 = 车型产量*单重*单耗"
+                android:textColor="#FF9B9B9B"
+                android:textSize="12sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/lineColor" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:layout_marginLeft="12dp"
+                    android:src="@mipmap/icon_xingneng" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:text="详情信息"
+                    android:textColor="#FF3399FF"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="12dp"
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:text="品种牌号："
+                    android:textColor="#FF999999"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginLeft="18dp"
+                    android:layout_width="93dp"
+                    android:layout_height="20dp"
+                    android:text="冷轧板卷SPCE"
+                    android:textColor="#FF333333"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="12dp"
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="12dp"
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:text="规     格    ："
+                    android:textColor="#FF999999"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginLeft="18dp"
+                    android:layout_width="93dp"
+                    android:layout_height="20dp"
+                    android:text="冷轧板卷SPCE"
+                    android:textColor="#FF333333"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="12dp"
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="12dp"
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:text="产     地    ："
+                    android:textColor="#FF999999"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginLeft="18dp"
+                    android:layout_width="93dp"
+                    android:layout_height="20dp"
+                    android:text="冷轧板卷SPCE"
+                    android:textColor="#FF333333"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="12dp"
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="12dp"
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:text="钢厂产线："
+                    android:textColor="#FF999999"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginLeft="18dp"
+                    android:layout_width="93dp"
+                    android:layout_height="20dp"
+                    android:text="冷轧板卷SPCE"
+                    android:textColor="#FF333333"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="12dp"
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="12dp"
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:text="最终用户："
+                    android:textColor="#FF999999"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginLeft="18dp"
+                    android:layout_width="93dp"
+                    android:layout_height="20dp"
+                    android:text="冷轧板卷SPCE"
+                    android:textColor="#FF333333"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="12dp"
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="12dp"
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:text="加工基地："
+                    android:textColor="#FF999999"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginLeft="18dp"
+                    android:layout_width="93dp"
+                    android:layout_height="20dp"
+                    android:text="冷轧板卷SPCE"
+                    android:textColor="#FF333333"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="12dp"
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="拼卷方案号／零件编号："
+                    android:textColor="#FF999999"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginLeft="18dp"
+                    android:layout_width="93dp"
+                    android:layout_height="20dp"
+                    android:text="冷轧板卷SPCE"
+                    android:textColor="#FF333333"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="12dp"
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="12dp"
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:text="总     量    ："
+                    android:textColor="#FF999999"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginLeft="18dp"
+                    android:layout_width="93dp"
+                    android:layout_height="20dp"
+                    android:text="冷轧板卷SPCE"
+                    android:textColor="#FF333333"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <View
+                android:layout_marginLeft="12dp"
+                android:background="@color/lineColor"
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

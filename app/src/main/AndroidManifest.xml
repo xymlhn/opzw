@@ -53,7 +53,12 @@
         <activity
             android:name=".part.PartDetailActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".demand.DemandActivity"></activity>
+        <activity
+            android:name=".demand.DemandActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demand.DemandDetailActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
